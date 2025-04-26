@@ -1,4 +1,4 @@
-export default class Cl_Estudiante{
+export default class Cl_mEstudiante{
     constructor({cedula, nombre, apellido}){
         this.cedula = cedula;
         this.nombre = nombre;

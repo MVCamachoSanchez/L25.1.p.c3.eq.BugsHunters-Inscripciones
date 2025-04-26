@@ -25,12 +25,40 @@ import Cl_vAplicacion from "./Cl_vAplicacion.js";
 import Cl_mMaterias from "./Cl_mMaterias.js";
 import Cl_mEstudiantes from "./Cl_mEstudiantes.js";
 import Cl_controlador from "./Cl_controlador.js";
+import Cl_mEstudiante from "./Cl_mEstudiante.js";
+import Cl_mMateria from "./Cl_mMateria.js";
 
 export default class Cl_principal {
   constructor() {
     let vistaApp = new Cl_vAplicacion();
     let mMaterias = new Cl_mMaterias();
     let mEstudiantes = new Cl_mEstudiantes();
+    let dataEstudiantes = [
+      { cedula: 31146512, apellido: "camacho", nombre: "maria" },
+      { cedula: 31099503, apellido: "blanco", nombre: "miguel" },
+      { cedula: 31137558, apellido: "Rivero", nombre: "Jesus" },
+    ];
+
+    dataEstudiantes.forEach(estudiante => mEstudiantes.agregar
+      (new Cl_mEstudiante({
+        cedula: estudiante.cedula,
+        apellido: estudiante.apellido,
+        nombre: estudiante.nombre,
+      })));
+
+    let dataMaterias = [
+      {codigo: "3133", semestre: 4, nombre: "Programación I"},
+      {codigo: "5425", semestre: 3, nombre: "Matemática II"},
+      {codigo: "3233", semestre: 4, nombre: "Ingles II"},
+    ];
+    
+    dataMaterias.forEach(materia => mMaterias.agregar
+      (new Cl_mMateria({
+        codigo: materia.codigo,
+        semestre: materia.semestre,
+        nombre: materia.nombre,
+      })));
+
     let controlador = new Cl_controlador({
       mEstudiantes: mEstudiantes,
       mMaterias: mMaterias,

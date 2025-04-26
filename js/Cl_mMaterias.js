@@ -10,4 +10,13 @@ export default class Cl_mMaterias{
     listado(){
         return this.arrMaterias;
     }
+
+    existe(codigo){
+        for(let i = 0; i < this.arrMaterias.length; i++ ){
+            if(this.arrMaterias[i].codigo === codigo){
+                return true;
+            }
+        }
+        return false;
+    }
 }
